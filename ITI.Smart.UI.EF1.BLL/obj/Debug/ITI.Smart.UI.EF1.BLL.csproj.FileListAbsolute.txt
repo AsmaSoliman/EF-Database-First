@@ -1,0 +1,14 @@
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\bin\Debug\ITI.Smart.UI.EF1.BLL.dll.config
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\bin\Debug\ITI.Smart.UI.EF1.BLL.dll
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\bin\Debug\ITI.Smart.UI.EF1.BLL.pdb
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\bin\Debug\EntityFramework.dll
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\bin\Debug\ITI.Smart.UI.EF1.Model.dll
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\bin\Debug\ITI.Smart.UI.EF1.Repository.dll
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\bin\Debug\ITI.Smart.UI.EF1.Model.pdb
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\bin\Debug\ITI.Smart.UI.EF1.Repository.pdb
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\bin\Debug\EntityFramework.xml
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\obj\Debug\ITI.Smart.UI.EF1.BLL.csprojResolveAssemblyReference.cache
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\obj\Debug\ITI.Smart.UI.EF1.BLL.dll
+D:\ITI\MVC\ITI.Smart.UI.EF1\ITI.Smart.UI.EF1.BLL\obj\Debug\ITI.Smart.UI.EF1.BLL.pdb

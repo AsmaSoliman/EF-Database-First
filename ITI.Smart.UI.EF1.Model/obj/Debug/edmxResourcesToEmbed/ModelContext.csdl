@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EF.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FK_CountryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_City_Country" FromRole="City" ToRole="Country" />
+    <NavigationProperty Name="UserVisits" Relationship="Self.FK_UserVisits_City" FromRole="City" ToRole="UserVisits" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_City_Country" FromRole="Country" ToRole="City" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phoneNumber" Type="Int32" />
+    <Property Name="Gender" Type="Int32" />
+    <NavigationProperty Name="UserVisits" Relationship="Self.FK_UserVisits_user" FromRole="user" ToRole="UserVisits" />
+  </EntityType>
+  <EntityType Name="UserVisit">
+    <Key>
+      <PropertyRef Name="userId" />
+      <PropertyRef Name="cityId" />
+    </Key>
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <Property Name="cityId" Type="Int32" Nullable="false" />
+    <Property Name="when" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="City" Relationship="Self.FK_UserVisits_City" FromRole="UserVisits" ToRole="City" />
+    <NavigationProperty Name="user" Relationship="Self.FK_UserVisits_user" FromRole="UserVisits" ToRole="user" />
+  </EntityType>
+  <Association Name="FK_City_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="FK_CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserVisits_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="UserVisits" Type="Self.UserVisit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserVisits">
+        <PropertyRef Name="cityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserVisits_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="UserVisits" Type="Self.UserVisit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserVisits">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="UserVisits" EntityType="Self.UserVisit" />
+    <AssociationSet Name="FK_City_Country" Association="Self.FK_City_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserVisits_City" Association="Self.FK_UserVisits_City">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="UserVisits" EntitySet="UserVisits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserVisits_user" Association="Self.FK_UserVisits_user">
+      <End Role="user" EntitySet="users" />
+      <End Role="UserVisits" EntitySet="UserVisits" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
